@@ -3,7 +3,6 @@ import java.util.Random;
 public class Vacancy{
     String specialty;
     private final int salary;
-    private int id;
 
     public Vacancy() {
         String[] specialtyList = new String[]{"IT", "Courier", "Handyman", "Security", "Cleaner", "Manager", "Copywriter"};
@@ -25,11 +24,6 @@ public class Vacancy{
     public int getSalary() {
         return salary;
     }
-
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Вакансия - " +
