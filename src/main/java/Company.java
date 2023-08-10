@@ -25,6 +25,10 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Доступные вакансии компании " + name + ":\n " + vacancies.toString().replaceAll("[,\\[\\]]", "") + "\n  ";
+        System.out.println("Доступные вакансии компании " + name + ":\n ");
+        for (int i = 0; i < vacancies.size(); i++) {
+            System.out.print(i + 1 + ". " + vacancies.get(i).toString().replaceAll("[,\\[\\]]", ""));
+        }
+        return "=".repeat(100) + "\n";
     }
 }
