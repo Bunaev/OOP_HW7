@@ -14,19 +14,12 @@ public class Company {
         this.name = name;
     }
     public void needEmployee(){
-        findEmployee();
-        for (int i = 0; i < vacancies.size(); i++)
-            jobAgency.sendOffer(name, vacancies.get(i).getSalary(), vacancies.get(i).getSpecialty());
-
-    }
-    public void findEmployee(){
         for (int i = 0; i < vacancies.size(); i++)
             if (jobAgency.sendOffer(name, vacancies.get(i).getSalary(), vacancies.get(i).getSpecialty())){
                 System.out.println(name + ": Мы нашли сотрудника! Удаляем свою вакансию: " + vacancies.get(i).getSpecialty());
                 vacancies.remove(i);
             }
     }
-
     public void addVacancies(){
         vacancies.add(new Vacancy());
     }
