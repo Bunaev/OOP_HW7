@@ -5,4 +5,5 @@ public interface Observer {
     int getMinSalary();
     String getName();
 
+
 }

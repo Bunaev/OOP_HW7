@@ -1,10 +1,10 @@
-public class Aplicant implements Observer {
+public class Applicant implements Observer {
 
     private final String name;
     private final String specialty;
     int minSalary;
 
-    public Aplicant(String name, int minSalary, String speciality){
+    public Applicant(String name, int minSalary, String speciality){
         this.name = name;
         this.specialty = speciality;
         this.minSalary = minSalary;
@@ -25,7 +25,7 @@ public class Aplicant implements Observer {
     @Override
     public void receiveOffer(String nameCompany, int salary, String specialty) {
         if (this.minSalary <= salary) {
-            System.out.printf("Соискатель %s: Мне нужна эта работа! (company: %s; salary: %d; speciality: %s)\n", name,
+            System.out.printf("Соискатель %s: Мне нужна эта работа! Прошу отправить моё резюме в компанию. (company: %s; salary: %d; speciality: %s)\n", name,
                     nameCompany, salary, specialty);
             this.minSalary = salary;
         } else {
