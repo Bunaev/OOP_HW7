@@ -9,9 +9,15 @@ public class Program {
      */
     public static void main(String[] args) {
         Publisher jobAgency = new JobAgency();
-        Company google = new Company(jobAgency, "Google", new Vacancy());
-        Company yandex = new Company(jobAgency, "Yandex", new Vacancy());
-        Company geekBrains = new Company(jobAgency, "GeekBrains", new Vacancy());
+        Company google = new Company(jobAgency, "Google");
+        Company yandex = new Company(jobAgency, "Yandex");
+        Company geekBrains = new Company(jobAgency, "GeekBrains");
+        google.addVacancies();
+        google.addVacancies();
+        yandex.addVacancies();
+        geekBrains.addVacancies();
+        System.out.println(google);
+        System.out.println(yandex);
 
         jobAgency.registerObserver(new Aplicant("Петров Иван", 60000, "Security"));
         jobAgency.registerObserver(new Aplicant("Иванов Сергей", 100000, "IT"));
@@ -22,6 +28,5 @@ public class Program {
         google.needEmployee();
         yandex.needEmployee();
         geekBrains.needEmployee();
-
     }
 }

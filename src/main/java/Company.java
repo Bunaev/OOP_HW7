@@ -1,23 +1,30 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Company {
-
-    private final Random random = new Random();
-
     Publisher jobAgency;
 
     private final String name;
 
-    private final Vacancy vacancy;
+    public List <Vacancy> vacancies = new ArrayList<>();
 
-    public Company(Publisher jobAgency, String name, Vacancy vacancy) {
+
+    public Company(Publisher jobAgency, String name) {
         this.jobAgency = jobAgency;
         this.name = name;
-        this.vacancy = vacancy;
     }
 
     public void needEmployee(){
-        jobAgency.sendOffer(name, vacancy.getSalary(), vacancy.getSpecialty());
+        for (Vacancy vacancy: vacancies)
+            jobAgency.sendOffer(name, vacancy.getSalary(), vacancy.getSpecialty());
     }
 
+    public void addVacancies(){
+        vacancies.add(new Vacancy());
+    }
+
+    @Override
+    public String toString() {
+        return "Доступные вакансии компании " + name + ":\n " + vacancies.toString().replaceAll("[,\\[\\]]", "") + "\n  ";
+    }
 }

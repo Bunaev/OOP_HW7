@@ -1,29 +1,22 @@
 import java.util.Random;
 
 public class Vacancy{
-    private final Random random = new Random();
     String specialty;
-    private int salary;
-
+    private final int salary;
 
     public Vacancy() {
         String[] specialtyList = new String[]{"IT", "Courier", "Handyman", "Security", "Cleaner", "Manager", "Copywriter"};
+        Random random = new Random();
         this.specialty = specialtyList[random.nextInt(0,specialtyList.length)];
-        if (specialty.equals("IT")) {
-            this.salary = random.nextInt(80000, 300000);
-        } else if (specialty.equals("Courier") || specialty.equals("Handyman")) {
-            this.salary = random.nextInt(15000, 40000);
-        } else if (specialty.equals("Security")) {
-            this.salary = random.nextInt(30000, 65000);
-        } else if (specialty.equals("Cleaner")) {
-            this.salary = random.nextInt(30000, 50000);
-        } else if (specialty.equals("Manager")) {
-            this.salary = random.nextInt(65000, 100000);
-        } else {
-            this.salary = random.nextInt(25000, 50000);
+        switch (specialty) {
+            case "IT" -> this.salary = random.nextInt(80000, 300000);
+            case "Courier", "Handyman" -> this.salary = random.nextInt(15000, 40000);
+            case "Security" -> this.salary = random.nextInt(30000, 65000);
+            case "Cleaner" -> this.salary = random.nextInt(30000, 50000);
+            case "Manager" -> this.salary = random.nextInt(65000, 100000);
+            default -> this.salary = random.nextInt(25000, 50000);
         }
     }
-
     public String getSpecialty() {
         return specialty;
     }
@@ -34,9 +27,9 @@ public class Vacancy{
 
     @Override
     public String toString() {
-        return "Vacancy - " +
-                "specialty='" + specialty + '\'' +
-                ", salary=" + salary +
-                '}';
+        return "Вакансия - " +
+                "Специальность: " + specialty +
+                "; заработная плата: " + salary +
+                " руб.\n";
     }
 }
